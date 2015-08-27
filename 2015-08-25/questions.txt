@@ -18,6 +18,16 @@ In practice, this took X time.  This includes
 Consider the following questions:
 
 1. What is a simple model that would predict this time?
+   This model assumes that the number of people per row is constant.
+   X = t0 + t1+ n*t2 + n*t3
+	where   t0 is the overall starting time,
+		t1 is the time needed to count one row
+		t2 is the time needed to gather a number from a row
+		t3 is the time needed to add a number
+		n is the number of rows
 2. What about a simple model to predict time for one person to count?
+   X’ = t0 + n*t1
+
 3. How big should the class be before the parallel method takes less time?
+   X’ > X => n > t1/(t1-t2-t3)
 
