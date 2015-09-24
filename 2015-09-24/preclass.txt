@@ -1,5 +1,5 @@
 0.  How much time did you spend on this pre-class exercise, and when?
-
+	forever...
 1.  What are one or two points that you found least clear in the
     9/24 slide decks (including the narration)?
 
@@ -12,10 +12,34 @@
        terms of the number of trials (N), number of processors (p),
        time per trial (t_trial), and time to update the global
        counters in the critical section (t_update).
+		
+		N/p*t_trial+N/b*t_update
 
     b) Run the code with a few different parameter values in order
        to estimate N, t_trial, and t_update for this code on
        a totient compute node.
+		--- Run input parameters:
+		rtol:      1.000000e-04
+		maxtrials: 10000000
+		nbatch:    1000
+		0.499942 (9.12692e-05) from 10001000 trials
+		1 threads (OpenMP): 6.992197e-02 s
+
+		--- Run input parameters:
+		rtol:      1.000000e-04
+		maxtrials: 10000000
+		nbatch:    1000
+		0.499924 (9.11967e-05) from 10024000 trials
+		24 threads (OpenMP): 3.673291e-02 s
+		
+		--- Run input parameters:
+		rtol:      1.000000e-04
+		maxtrials: 10000000
+		nbatch:    10000
+		0.500004 (9.02354e-05) from 10240000 trials
+		24 threads (OpenMP): 3.015208e-02 s
+
+
 
     c) Based on your model, suggest a strategy for choosing the batch
        size.  How might you generalize this strategy to automatically
